@@ -7,8 +7,8 @@
   },
   "scripts": {
     "help": "serve help",
-    "start": "serve .",
-    "deploy": "gh-pages -d ."
+    "start": "serve public",
+    "deploy": "gh-pages -d public"
   },
   "eslintConfig": {
     "extends": [
