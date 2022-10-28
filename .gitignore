@@ -1,0 +1,7 @@
+build/*
+**/logs/*
+python-backend/run.log
+.starknet_accounts/*
+**/__pycache__
+**/node_modules
+.idea

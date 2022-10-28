@@ -1,0 +1,60 @@
+services:
+  # █▀▀ ▄▀█ █ █▀█ █▀█
+  # █▄▄ █▀█ █ █▀▄ █▄█
+  # Compiles, runs and deploys cairo code
+  cairo:
+    profiles:
+      - cairo
+    build: ./cairo
+    environment:
+      - RUN_SCRIPT=${RUN_SCRIPT:-test}
+    env_file:
+      - ./cairo/.env
+    ports:
+      - "8100:8100"
+    volumes:
+      # Logs and config
+      - ./shared/.starknet_accounts:/root/.starknet_accounts
+      - ./cairo/logs:/code/logs
+      # Code directories
+      - ./cairo/src:/code/src
+      - ./cairo/libs:/code/libs
+      # Builds
+      - ./cairo/build:/code/build
+      # Scripts
+      - ./cairo/scripts.sh:/code/scripts.sh
+      - ./cairo/run.sh:/code/run.sh
+    command: sh -c "chmod -R +x ./scripts.sh ./run.sh && ./run.sh"
+
+  # █▄▄ ▄▀█ █▀▀ █▄▀ █▀▀ █▄ █ █▀▄ █▀
+  # █▄█ █▀█ █▄▄ █ █ ██▄ █ ▀█ █▄▀ ▄█
+  # Backends in Python or JS, share wallet keys from ./shared/.starknet_accounts
+  python-backend:
+    build: ./python-backend
+    env_file:
+      - ./python-backend/.env
+    ports:
+      - "5000:5000"
+    volumes:
+      # Code directories
+      - ./python-backend:/code
+      - ./shared/.starknet_accounts:/root/.starknet_accounts
+    command: ["python3", "./src/start.py"]
+
+  #  █▀▀ █▀█ █▀█ █▄ █ ▀█▀ █▀▀ █▄ █ █▀▄
+  #  █▀  █▀▄ █▄█ █ ▀█  █  ██▄ █ ▀█ █▄▀
+  # Frontend npm package
+  frontend:
+    profiles:
+      - demo
+    image: node:16-alpine
+    working_dir: /home/node/app
+    environment:
+      NODE_ENV: ${ENV}
+      PORT: 3000
+    ports:
+      - "3000:3000"
+    volumes:
+      # Code directories
+      - ./frontend:/home/node/app
+    command: sh -c "npm install && npm start"
