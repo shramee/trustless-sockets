@@ -2,8 +2,6 @@
 
 Trustless websockets that run core game logic in Cairo making the execution provable and verifiable.
 
-# Contents
-
 ## Cairo stuff
 Cairo contracts to be deployed
 
