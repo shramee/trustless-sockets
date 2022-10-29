@@ -13,7 +13,14 @@ html, body {
 	--light: #a8dadc;
 	--white: #f1faee;
 	--secondary: #e63946;
+}
 
+.home {
+	padding: 56px 20px;
+	min-height: 100%;
+	width: 100%;
+	max-width: 1024px;
+	margin: auto;
 }
 
 * {
@@ -28,25 +35,30 @@ html, body {
 	background: #1d3557;
 }
 
-.button-huge,
+.btn-big,
 .button {
+	border-radius: 3px;
 	display: inline-block;
 	cursor: pointer;
 	padding: .8em 1.2em;
 	background-color: var( --secondary );
 	border: none;
-	color: #fff;
+	color: var( --white );
 	text-decoration: none;
 	position: relative;
 	transition: .2s all;
 }
+.btn-big:disabled,
+.button:disabled {
+	opacity: .7;
+}
 
-.button-huge:hover,
+.btn-big:hover,
 .button:hover {
 	transform: scale(1.01);
 }
 
-.button-huge {
+.btn-big {
 	font-size: 2em;
 }
 

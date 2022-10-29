@@ -1,5 +1,4 @@
 import {h, Component} from 'preact';
-import style from '../base.css';
 import {connect, disconnect} from "get-starknet";
 import Game from './game';
 import Ready from './ready';
@@ -12,15 +11,24 @@ class Play extends Component {
 
 	connectWallet( showListModal ) {
 		connect( {showList: showListModal} ).then( wallet => {
-			wallet?.enable( {showModal: showListModal} )
-						.then( () => this.setState( {wallet} ) );
+			wallet
+				?.enable( {showModal: showListModal} )
+				.then( () => {
+					this.setState( {
+						wallet,
+						player: {
+							addr: wallet.selectedAddress,
+						}
+					} );
+
+				} );
 		} );
 	}
 
 	render() {
 		const {wallet} = this.state;
 
-		return <div className={style.home}>
+		return <div className='home'>
 			{
 				!wallet?.isConnected ?
 					this.renderConnectBtn() :
@@ -31,18 +39,16 @@ class Play extends Component {
 
 	renderConnectBtn() {
 		return <p className='tc' style={{marginTop: '25vh'}}>
-			<button className='button-huge' onClick={e => this.connectWallet( true )}>
+			<button className='btn-big' onClick={e => this.connectWallet( true )}>
 				Connect wallet to continue
 			</button>
 		</p>;
 	}
 
 	renderWalletReady() {
-		return <Ready state={this.state} updateState={newState => this.setState(newState)} />;
 	}
 
 	renderGame() {
-		return <Game state={this.state} updateState={newState => this.setState(newState)} />;
 	}
 }
 

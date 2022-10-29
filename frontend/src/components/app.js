@@ -1,20 +1,24 @@
-import { h } from 'preact';
-import { Router } from 'preact-router';
-
+import {h} from 'preact';
 import Header from './header';
+import Play from '../pages/play';
+import About from '../pages/about';
+import {useState} from "preact/hooks";
 
-// Code-splitting is automated for `routes` directory
-import Play from '../routes/play';
-import About from '../routes/about';
+function CustomRouter( route ) {
+	switch ( route ) {
+		case '#play':
+			return <Play/>
+	}
+	return <About/>
+}
 
-const App = () => (
-	<div id="app">
-		<Header />
-		<Router>
-			<About path="/" />
-			<Play path="/play" />
-		</Router>
-	</div>
-)
+const App = () => {
+	const [route, setRoute] = useState( window?.location.hash )
+	addEventListener( 'hashchange', e => { setRoute( window?.location.hash ) } );
+	return <div id="app">
+		<Header route={route} />
+		{CustomRouter(route)}
+	</div>;
+}
 
 export default App;

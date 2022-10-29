@@ -1,4 +1,4 @@
-export default function Ready() {
+export default function Game() {
 	return <div style={{marginTop: '25vh'}}>
 		<p>Imagine you are looking at an awesome game!</p>
 		<p>You are having a lot of fun!</p>

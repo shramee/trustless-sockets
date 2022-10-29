@@ -2,12 +2,13 @@ import { h } from 'preact';
 import { Link } from 'preact-router/match';
 import style from './style.css';
 
-const Header = () => (
+const Header = ( {route} ) => (
+
 	<header class={style.header} id='masthead'>
 		<h1>Trustless socket demo</h1>
 		<nav>
-			<Link activeClassName={style.active} href="/">Home</Link>
-			<Link activeClassName={style.active} href="/play">Play</Link>
+			<a className={(route === '#' || route === '') && style.active} href="#">Home</a>
+			<a className={(route === '#play') && style.active} href="#play">Play</a>
 		</nav>
 	</header>
 );
