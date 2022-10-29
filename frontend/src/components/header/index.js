@@ -6,8 +6,8 @@ const Header = () => (
 	<header class={style.header}>
 		<h1>Trustless socket demo</h1>
 		<nav>
-			<Link activeClassName={style.active} href="/">Fight</Link>
-			<Link activeClassName={style.active} href="/about">About</Link>
+			<Link activeClassName={style.active} href="/">Home</Link>
+			<Link activeClassName={style.active} href="/play">Play</Link>
 		</nav>
 	</header>
 );

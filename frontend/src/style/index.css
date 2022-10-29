@@ -17,3 +17,28 @@ html, body {
 #app {
 	height: 100%;
 }
+
+.button {
+	display: inline-block;
+	padding: 1em 1.6em;
+	background-color: #673AB7;
+	color: #fff;
+	text-decoration: none;
+}
+
+ul.square-box  {
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+}
+
+.square-box > li:before {
+	content: "\2610";
+	font-size: 1.2em;
+	display: inline-block;
+	margin-right: .5em;
+}
+
+.square-box > li.done:before {
+	content: "\2611";
+}
