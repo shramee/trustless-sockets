@@ -12,9 +12,11 @@ function CustomRouter( route ) {
 	return <About/>
 }
 
+const locHash = () => typeof window !== 'undefined' ? window?.location.hash : '';
+
 const App = () => {
-	const [route, setRoute] = useState( window?.location.hash )
-	addEventListener( 'hashchange', e => { setRoute( window?.location.hash ) } );
+	const [route, setRoute] = useState( locHash() )
+	typeof addEventListener !== 'undefined' && addEventListener( 'hashchange', e => { setRoute( locHash() ) } );
 	return <div id="app">
 		<Header route={route} />
 		{CustomRouter(route)}

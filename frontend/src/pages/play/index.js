@@ -46,9 +46,13 @@ class Play extends Component {
 	}
 
 	renderWalletReady() {
+		const {player} = this.state;
+		return <Ready player={player} update={newData => this.setState( {player: {...player, ...newData}} )}/>;
 	}
 
 	renderGame() {
+		const {player} = this.state;
+		return <Game player={player} update={newData => this.setState( {player: {...player, ...newData}} )}/>;
 	}
 }
 
