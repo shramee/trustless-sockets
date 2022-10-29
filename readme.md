@@ -24,11 +24,11 @@ Here's what we want to do for our alpha preview (will be submitted as a part of 
 
 #### Frontend boilerplate
 - [ ] Frontend - `trustless-sockets-frontend` boilerplate
-  * [ ] Wallet integration
-  * [ ] Wallet integration
+  * [x] Wallet integration
   * [ ] Referee contract - `place_bet` invoke
-  * [ ] Connect with websocket
-  * [ ] Events bindings to state heartbeat updates
+  * [x] Connect with websocket
+  * [x] WS player data sync
+  * [x] Events bindings to state heartbeat updates
 
 #### Backend infrastructure
 - [ ] Backend - Cairo L3 node
@@ -37,6 +37,7 @@ Here's what we want to do for our alpha preview (will be submitted as a part of 
   * [ ] Cairo prepares current game state
   * [ ] Returns game state for rendering
 - [ ] Backend - Socket interface
+    * [ ] WS setup
     * [ ] Player lobby (after placing bets)
     * [ ] Start game when 2+ players in lobby
     * [ ] Call game finished when game ends
