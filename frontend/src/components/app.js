@@ -4,15 +4,15 @@ import { Router } from 'preact-router';
 import Header from './header';
 
 // Code-splitting is automated for `routes` directory
-import Home from '../routes/home';
+import Play from '../routes/play';
 import About from '../routes/about';
 
 const App = () => (
 	<div id="app">
 		<Header />
 		<Router>
-			<Home path="/play" />
 			<About path="/" />
+			<Play path="/play" />
 		</Router>
 	</div>
 )
