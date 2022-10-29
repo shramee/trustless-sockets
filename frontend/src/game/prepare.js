@@ -1,15 +1,6 @@
-const characters = [
-	'cyclops',
-	'dragon',
-	'echidna',
-	'ghost',
-	'medusa',
-	'umbrella',
-	'unicorn',
-	'vampire',
-];
+import {characters} from '../conf';
+export default function Prepare( {update, player, readyForGame} ) {
 
-export default function Ready( {update, player, readyForGame} ) {
 	const {char} = player;
 	return <div className='nl3 nr3 flex items-center'>
 		<div className="ph3 w-60 tc">
@@ -34,8 +25,7 @@ export default function Ready( {update, player, readyForGame} ) {
 
 			<h4 className='ma0 o-50 ttu'>Bet amount</h4>
 			<h4 className='ma0'>0.002 Ether</h4>
-			<button
-				disabled={! char} className="btn-big mt4">Play now</button>
+			<button disabled={! char} className="btn-big mt4" onClick={e => readyForGame()}>Start game</button>
 		</div>
 	</div>
 }
