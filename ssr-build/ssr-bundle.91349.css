@@ -1,0 +1,132 @@
+html, body {
+	height: 100%;
+	width: 100%;
+	padding: 0;
+	margin: 0;
+	background: var( --white );
+	font: 17px/1.6 'Helvetica Neue', arial, sans-serif;
+	color: #444;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+	--primary: #1d3557;
+	--tertiary: #457b9d;
+	--light: #a8dadc;
+	--white: #f1faee;
+	--secondary: #e63946;
+
+}
+
+* {
+	box-sizing: border-box;
+}
+
+#app {
+	height: 100%;
+}
+
+#masthead {
+	background: #1d3557;
+}
+
+.button-huge,
+.button {
+	display: inline-block;
+	cursor: pointer;
+	padding: .8em 1.2em;
+	background-color: var( --secondary );
+	border: none;
+	color: var( --white );
+	text-decoration: none;
+	position: relative;
+	transition: .2s all;
+}
+
+.button-huge:hover,
+.button:hover {
+	-webkit-transform: scale(1.01);
+	    -ms-transform: scale(1.01);
+	        transform: scale(1.01);
+}
+
+.button-huge {
+	font-size: 2em;
+}
+
+ul.square-box  {
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+}
+
+.square-box > li:before {
+	content: "\2610";
+	font-size: 1.2em;
+	display: inline-block;
+	margin-right: .5em;
+}
+
+.square-box > li.done:before {
+	content: "\2611";
+}
+
+.tc {
+	text-align: center;
+}
+.header__OVZyn {
+	position: fixed;
+	left: 0;
+	top: 0;
+	width: 100%;
+	height: 56px;
+	padding: 0;
+	box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+	z-index: 50;
+}
+
+.header__OVZyn h1 {
+	float: left;
+	margin: 0;
+	padding: 0 15px;
+	font-size: 24px;
+	line-height: 56px;
+	font-weight: 400;
+	color: #FFF;
+}
+
+.header__OVZyn nav {
+	float: right;
+	font-size: 100%;
+}
+
+.header__OVZyn nav a {
+	display: inline-block;
+	height: 56px;
+	line-height: 56px;
+	padding: 0 15px;
+	min-width: 50px;
+	text-align: center;
+	background: rgba(255,255,255,0);
+	text-decoration: none;
+	color: #FFF;
+	will-change: background-color;
+}
+
+.header__OVZyn nav a:hover,
+.header__OVZyn nav a:active {
+	background: rgba(0,0,0,0.2);
+}
+
+.header__OVZyn nav a.active__r\+Z6z {
+	background: rgba(0,0,0,0.4);
+}
+
+.home__cYY5e {
+	padding: 56px 20px;
+	min-height: 100%;
+	width: 100%;
+	max-width: 800px;
+	margin: auto;
+}
+
+
+/*# sourceMappingURL=ssr-bundle.91349.css.map*/
