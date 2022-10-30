@@ -4,3 +4,5 @@ sympy
 cairo-lang
 pytest
 pytest-asyncio
+asyncio
+websockets

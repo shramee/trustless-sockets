@@ -1,5 +1,5 @@
 # FROM python:3.9.13-bullseye
-FROM python:3.9.13-alpine3.16
+FROM python:3.12.0a1-alpine
 WORKDIR /code
 
 COPY ./requirements.txt ./requirements.txt
@@ -9,6 +9,6 @@ ENV STARKNET_NETWORK=alpha-goerli
 ENV STARKNET_WALLET=starkware.starknet.wallets.open_zeppelin.OpenZeppelinAccount
 
 RUN apk add gmp-dev g++ gcc
-RUN pip3 install -r requirements.txt
+RUN pip install -r requirements.txt
 
-CMD ["python3", "./src/start.py"]
+CMD ["python", "./src/start.py"]
