@@ -7,7 +7,7 @@ import {useState} from "preact/hooks";
 function CustomRouter( route ) {
 	switch ( route ) {
 		case '#play':
-			return <Play/>
+			return <Play />;
 	}
 	return <About/>
 }

@@ -52,6 +52,10 @@ html, body {
 	flex-direction: column;
 }
 
+.home > * {
+	width: 100%;
+}
+
 * {
 	box-sizing: border-box;
 }

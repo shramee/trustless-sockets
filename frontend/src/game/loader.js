@@ -8,9 +8,9 @@ export default function Loader( { player } ) {
 	const next = characters[(charI + 2) % characters.length];
 	return <>
 		{char && <div className='bouncing-loader tc center'>
-			<img className='bounce-infinite' src={`assets/characters/${prev}.png`}/>
-			<img className='bounce-infinite' src={`assets/characters/${char}.png`}/>
-			<img className='bounce-infinite' src={`assets/characters/${next}.png`}/>
+			<img alt={prev} src={`assets/characters/${prev}.png`}/>
+			<img alt={char} src={`assets/characters/${char}.png`}/>
+			<img alt={next} src={`assets/characters/${next}.png`}/>
 		</div>}
 		<h3>That's all for now, wait until further dev 🛠️</h3>
 	</>;
