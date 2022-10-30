@@ -31,6 +31,10 @@ services:
   # Backends in Python or JS, share wallet keys from ./shared/.starknet_accounts
   python-backend:
     build: ./python-backend
+    profiles:
+      - s_cks
+    environment:
+      PORT: 5000
     env_file:
       - ./python-backend/.env
     ports:
@@ -39,7 +43,9 @@ services:
       # Code directories
       - ./python-backend:/code
       - ./shared/.starknet_accounts:/root/.starknet_accounts
-    command: ["python3", "./src/start.py"]
+    # command: sh -c "pip3 install -r requirements.txt"
+    command: ["python", "./src/start.py"]
+    # command: sh -c "python3 -m http.server 5000"
 
   #  █▀▀ █▀█ █▀█ █▄ █ ▀█▀ █▀▀ █▄ █ █▀▄
   #  █▀  █▀▄ █▄█ █ ▀█  █  ██▄ █ ▀█ █▄▀
