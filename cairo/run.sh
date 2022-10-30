@@ -9,7 +9,7 @@ if [ $1 ];
 fi
 LOG_FILE="./logs/script-$RUN_SCRIPT.log"
 
-mkdir ./logs
+mkdir -p ./logs
 touch $LOG_FILE
 
 HR="----------------------------------------------------------------------"

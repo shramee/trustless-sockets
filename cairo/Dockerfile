@@ -1,5 +1,5 @@
 # FROM python:3.9.13-bullseye
-FROM python:3.9.13-alpine3.16
+FROM python:3.12.0a1-alpine
 WORKDIR /code
 
 COPY ./requirements.txt ./requirements.txt

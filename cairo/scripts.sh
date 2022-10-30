@@ -10,19 +10,19 @@ case $RUN_SCRIPT in
 	# Here are some example scripts, edit away as you please.
 
 	"test")
-		# Run tests in contract_test.py
-		pytest ./src/contract_test.py
+		# Run tests in referee_test.py
+		pytest -s ./src/referee_test.py
 	;;
 
-	"deploy")
-		starknet-compile ./src/contract.cairo \
-		--output ./build/contract.json \
-		--abi ./build/contract_abi.json
+	"referee")
+		starknet-compile ./src/referee.cairo \
+		--output ./build/referee.json \
+		--abi ./build/referee_abi.json
 
 		# deploy_compiled_contract
 		# Declares a class from compiled code and deploys the contract with
 		# trailing arguments passed as input.
-		deploy_compiled_contract ./build/contract.json
+		# deploy_compiled_contract ./build/referee.json
 	;;
 
 	"deploy_account")
