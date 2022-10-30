@@ -15,14 +15,14 @@ case $RUN_SCRIPT in
 	;;
 
 	"referee")
-		starknet-compile ./src/referee.cairo \
-		--output ./build/referee.json \
-		--abi ./build/referee_abi.json
+		starknet-compile ./src/referee-mini.cairo \
+		--output ./build/referee-mini.json \
+		--abi ./build/referee-mini_abi.json
 
 		# deploy_compiled_contract
 		# Declares a class from compiled code and deploys the contract with
 		# trailing arguments passed as input.
-		# deploy_compiled_contract ./build/referee.json
+		# deploy_compiled_contract ./build/referee-mini.json
 	;;
 
 	"deploy_account")

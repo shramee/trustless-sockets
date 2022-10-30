@@ -1,0 +1,61 @@
+[
+    {
+        "members": [
+            {
+                "name": "game_contract",
+                "offset": 0,
+                "type": "felt"
+            },
+            {
+                "name": "amount",
+                "offset": 1,
+                "type": "felt"
+            },
+            {
+                "name": "player",
+                "offset": 2,
+                "type": "felt"
+            }
+        ],
+        "name": "BetStruct",
+        "size": 3,
+        "type": "struct"
+    },
+    {
+        "data": [
+            {
+                "name": "amount",
+                "type": "felt"
+            },
+            {
+                "name": "game_contract",
+                "type": "felt"
+            }
+        ],
+        "keys": [],
+        "name": "bet_placed_event",
+        "type": "event"
+    },
+    {
+        "inputs": [
+            {
+                "name": "ownerAddress",
+                "type": "felt"
+            }
+        ],
+        "name": "constructor",
+        "outputs": [],
+        "type": "constructor"
+    },
+    {
+        "inputs": [],
+        "name": "place_bet",
+        "outputs": [
+            {
+                "name": "bet",
+                "type": "BetStruct"
+            }
+        ],
+        "type": "function"
+    }
+]
