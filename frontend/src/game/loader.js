@@ -3,7 +3,6 @@ import {characters} from '../conf';
 export default function Loader( { player } ) {
 	const {char} = player;
 	const charI = characters?.indexOf( char );
-	console.log( charI );
 	const prev = characters[(charI + 1) % characters.length];
 	const next = characters[(charI + 2) % characters.length];
 	return <>
@@ -12,6 +11,6 @@ export default function Loader( { player } ) {
 			<img alt={char} src={`assets/characters/${char}.png`}/>
 			<img alt={next} src={`assets/characters/${next}.png`}/>
 		</div>}
-		<h3>That's all for now, wait until further dev 🛠️</h3>
+		<h3 className='tc'>You are in the lobby.️</h3>
 	</>;
 }

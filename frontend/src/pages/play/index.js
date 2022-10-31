@@ -2,6 +2,7 @@ import {h, Component} from 'preact';
 import {connect, disconnect} from "get-starknet";
 import GameMaker from './gamemaker';
 import Prepare from '../../game/prepare';
+import {scripts} from "../../game/conf";
 
 class Play extends Component {
 
@@ -9,9 +10,26 @@ class Play extends Component {
 		player: {},
 		fps: 20,
 	};
+
+	constructor( props ) {
+		super( props );
+		this.state.player.char = 'dragon';
+		this.state.player.txn_id = '0xdummy_transaction';
+		this.state.player_ready = true;
+	}
+
 	componentDidMount() {
 		// Silent attempt to preconnect the wallet
-		this.connectWallet( false )
+		this.connectWallet( false );
+		if (window && document) {
+			scripts.forEach( url => {
+				const script = document.createElement( 'script' );
+				const body = document.getElementsByTagName( 'body' )[0];
+				script.src = url;
+				body.appendChild( script );
+				script.addEventListener('load', () => {})
+			} );
+		}
 	}
 
 	connectWallet( showListModal ) {
@@ -26,7 +44,6 @@ class Play extends Component {
 							...player, addr: wallet.selectedAddress,
 						}
 					} );
-
 				} );
 		} );
 	}
@@ -62,15 +79,14 @@ class Play extends Component {
 
 	async makeBetTransaction() {
 		// Makes bet transaction and returns the transaction ID.
-
 		return '0x7d3dc67c24_____DUMMY_TRANSACTION_____6b93c838ba5d3986255f7fefc8';
 	}
 
 	playerReady() {
 		this.makeBetTransaction()
 				.then( txn_id => {
-					this.setState( { txn_id, player_ready: true } );
-				} )
+					this.setState( {txn_id, player_ready: true} );
+				} );
 	}
 
 	renderWalletReady() {
